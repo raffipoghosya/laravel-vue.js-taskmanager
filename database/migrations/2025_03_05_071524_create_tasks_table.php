@@ -10,15 +10,18 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('tasks', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->text('description')->nullable();
-        $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
-        $table->timestamps();
-    });
-}
+    {
+        Schema::create('tasks', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
+            $table->string('assigned_to')->nullable(); // ✅ Ավելացրել ենք "Assigned To" դաշտը
+            $table->timestamps();
+        });
+    }
+    
+
 
     
 
